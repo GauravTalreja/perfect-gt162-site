@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>g ⊢</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+            name="description"
+            content="GT is studying computer science at the University of Waterloo"
+        />
+        <link rel="icon" href="" />
+        <style>
+            body {
+                max-width: 650px;
+                margin: 40px auto;
+                padding: 0 10px;
+                font:
+                    18px/1.5 -apple-system,
+                    BlinkMacSystemFont,
+                    "Segoe UI",
+                    Roboto,
+                    "Helvetica Neue",
+                    Arial,
+                    "Noto Sans",
+                    sans-serif,
+                    "Apple Color Emoji",
+                    "Segoe UI Emoji",
+                    "Segoe UI Symbol",
+                    "Noto Color Emoji";
+            }
+
+            h1,
+            h2,
+            h3 {
+                line-height: 1.2;
+            }
+
+            @media (prefers-color-scheme: dark) {
+                body {
+                    color: #cdd6f4;
+                    background: #1e1e2e;
+                }
+
+                h1 {
+                    color: #865dff;
+                }
+
+                a:link {
+                    color: #865dff;
+                }
+
+                a:visited {
+                    color: #b7bdf8;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <h1>g ⊢</h1>
+        <p>my initials are GT</p>
+        <code class="language-plaintext highlighter-rouge"
+            >t <
+            <script>
+                document.write(Date.now() + ":");
+            </script></code
+        >
+
+        <ul>
+            <li>grew up, studied and worked in silicon valley 🇮🇳, 🇨🇦 and 🇺🇸</li>
+            <li>
+                read 400+ SF books in middle school before discovering
+                <em>Minecraft</em>
+            </li>
+            <li>
+                interested in gamedev but
+                <strong>enamored by CS and Math at Waterloo</strong>
+            </li>
+            <li>
+                at 19, joined the <em>Minecraft Legends</em> campaign team until
+                ship
+            </li>
+            <li>
+                spent many hours at the
+                <a href="https://csclub.uwaterloo.ca/">Computer Science Club</a>
+            </li>
+            <li>
+                developed an AR experience for breast cancer research
+                fundraising
+            </li>
+            <li>
+                recruited by Microsoft to enhance Unreal Engine 5 for
+                <em>Gears of War: E-Day</em>
+            </li>
+            <li>
+                building digital humans as friends that can play Minecraft at
+                <a href="https://altera.al/">Altera.AL</a>
+            </li>
+            <li>will graduate in 2025</li>
+        </ul>
+
+        <p>X: <a href="https://x.com/gt0xa2/">@GT0xA2</a></p>
+
+        <p>Alignment:</p>
+        <ul>
+            <li>
+                <a href="https://a16z.com/the-techno-optimist-manifesto/"
+                    >The Techno-Optimist Manifesto</a
+                >
+            </li>
+            <li>
+                <a
+                    href="https://en.wikipedia.org/wiki/Church–Turing–Deutsch_principle#:~:text=The%20principle%20states%20that%20a,can%20simulate%20every%20physical%20process."
+                    >Church–Turing–Deutsch principle</a
+                >
+            </li>
+            <li>
+                <a
+                    href="https://en.wikipedia.org/wiki/Effective_accelerationism"
+                >
+                    Effective accelerationism
+                </a>
+            </li>
+            <li>
+                <a
+                    href="https://www.lesswrong.com/s/5g5TkQTe9rmPS5vvM/p/SqF8cHjJv43mvJJzx"
+                    >Feeling Rational</a
+                >
+            </li>
+            <li>
+                <a href="https://paulgraham.com/fn.html">Fierce Nerds</a>
+            </li>
+            <li>
+                <a href="https://doc.rust-lang.org/stable/book/"
+                    >The Rust Programming Language</a
+                >
+            </li>
+        </ul>
+        <p></p>
+
+        <audio
+            id="background-audio"
+            src="14_Ghosts_II_320kb.mp3"
+            loop
+            style="display: none"
+        ></audio>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                var audio = document.getElementById("background-audio");
+
+                function playAudio() {
+                    var playPromise = audio.play();
+                    if (playPromise !== undefined) {
+                        playPromise
+                            .then(function () {})
+                            .catch(function (error) {
+                                console.log("autoplay prevented: ", error);
+                                [
+                                    "click",
+                                    "touchstart",
+                                    "scroll",
+                                    "keydown",
+                                ].forEach(function (event) {
+                                    document.addEventListener(
+                                        event,
+                                        enableAudio,
+                                        {
+                                            once: true,
+                                        },
+                                    );
+                                });
+                            });
+                    }
+                }
+
+                function enableAudio() {
+                    audio.play();
+                    console.log(
+                        "audio playback started after user interaction",
+                    );
+                }
+
+                playAudio();
+            });
+        </script>
+    </body>
+</html>

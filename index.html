@@ -5,17 +5,34 @@
     <meta charset="utf-8" />
     <title>g ⊢</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="GT is studying computer science at the University of Waterloo." />
-    <link rel="icon" href="" />
-    <link rel="stylesheet" href="IosevkaSS14.css" />
+    <meta name="description" content="gaurav is studying computer science at the university of waterloo" />
+    <link rel="stylesheet" href="PPEditorialNew.css" />
     <style>
+        :root {
+            --text-color: #2c2c2c;
+            --bg-color: #ffffff;
+            --accent-color: #865dff;
+            --link-visited: #6c549c;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --text-color: #cdd6f4;
+                --bg-color: #1e1e2e;
+                --accent-color: #865dff;
+                --link-visited: #b7bdf8;
+            }
+        }
+
         body {
             max-width: 650px;
             margin: 40px auto;
-            padding: 0 10px;
-            font-family: "Iosevka SS14 Web";
+            padding: 0 1.5rem;
+            font-family: "PP Editorial New", system-ui, -apple-system, sans-serif;
             font-size: 16px;
-            line-height: 1.5;
+            line-height: 1.6;
+            color: var(--text-color);
+            background: var(--bg-color);
         }
 
         h1,
@@ -24,133 +41,120 @@
             line-height: 1.2;
         }
 
-        @media (prefers-color-scheme: dark) {
-            body {
-                color: #cdd6f4;
-                background: #1e1e2e;
-            }
+        a:link {
+            color: var(--accent-color);
+        }
 
-            h1 {
-                color: #865dff;
-            }
+        a:visited {
+            color: var(--link-visited);
+        }
 
-            a:link {
-                color: #865dff;
-            }
+        .header {
+            margin-bottom: 2rem;
+        }
 
-            a:visited {
-                color: #b7bdf8;
-            }
+        .header h1 {
+            display: inline;
+            color: var(--accent-color);
+        }
+
+        ul {
+            padding-left: 1.2rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
         }
     </style>
 </head>
 
 <body>
-    <h1 style="display:inline;">g ⊢</h1>
-    <p style="display:inline;"> | GT</p>
+    <header class="header">
+        <h1>gaurav talreja </h1><span>GT · g ⊢</span>
+        <p><a href="https://gaurav.press/">blog</a> · <a href="https://x.com/gt0xa2/">@gt0xa2</a></p>
+    </header>
 
-    <p><a href="https://www.gt162.com/">Blog</a> | <a href="https://x.com/gt0xa2/">@GT0xA2</a></p>
+    <h3>t < <span id="timestamp"></span></h3>
+
+    <ul>
+        <li>
+            grew up, studied, worked = (🇮🇳, 🇨🇦, 🇺🇸).map(silicon valley)
+        </li>
+        <li>
+            read <em>ready player one</em> after an existential crisis at 14
+        </li>
+        <li>
+            wanted to make games and bring about the metaverse
+        </li>
+        <li>enrolled in <strong>cs @ waterloo</strong></li>
+        <li>
+            shipped the <em>minecraft legends</em> campaign @ 19
+        </li>
+        <li>
+            spent many hours at the
+            <a href="https://csclub.uwaterloo.ca/">computer science club</a>
+        </li>
+        <li>
+            built an ar experience for a toilet paper company to raise funds for breast cancer research
+        </li>
+        <li>
+            enhanced unreal engine 5 for <em>gears of war: e-day</em> at microsoft
+        </li>
+        <li>
+            tired of simulacra, remembered <a href="https://en.wikipedia.org/wiki/FM-2030">fm-2030</a>
+        </li>
+        <li>
+            set to graduate in 2025
+        </li>
+    </ul>
+
+    <h3>alignment</h3>
+    <ul>
+        <li>
+            <a
+                href="https://en.wikipedia.org/wiki/Church–Turing–Deutsch_principle#:~:text=The%20principle%20states%20that%20a,can%20simulate%20every%20physical%20process.">church–turing–deutsch
+                principle</a>
+        </li>
+        <li>
+            <a href="https://paulgraham.com/fn.html">fierce nerds</a>
+        </li>
+        <li>
+            <a href="https://www.lesswrong.com/s/5g5TkQTe9rmPS5vvM/p/SqF8cHjJv43mvJJzx">feeling rational</a>
+        </li>
+        <li>
+            <a href="https://effectiveaccelerationism.substack.com/p/repost-effective-accelerationism">
+                effective accelerationism — e/acc
+            </a>
+        </li>
+        <li>
+            <a href="https://a16z.com/the-techno-optimist-manifesto/">the techno-optimist manifesto</a>
+        </li>
+        <li>
+            <a href="https://doc.rust-lang.org/stable/book/">the rust programming language</a>
+        </li>
+    </ul>
     <p></p>
-    t < <script>
-        document.write(Date.now() + ":");
-        </script>
-        </p>
 
-        <ul>
-            <li>
-                grew up, studied, worked =
-                <code class="language-plaintext highlighter-rouge">(🇮🇳, 🇨🇦, 🇺🇸)</code>.map(silicon valley)
-            </li>
-            <li>
-                read hundreds of speculative fiction books and discovered <em>Minecraft</em> in middle school
-            </li>
-            <li>enrolled in <strong>CS @ Waterloo</strong></li>
-            <li>
-                shipped the <em>Minecraft Legends</em> campaign @ 19
-            </li>
-            <li>
-                spent many hours at the
-                <a href="https://csclub.uwaterloo.ca/">Computer Science Club</a>
-            </li>
-            <li>
-                built an AR experience for a toilet paper company to raise funds for breast cancer research
-            </li>
-            <li>
-                enhanced Unreal Engine 5 for <em>Gears of War: E-Day</em> at Microsoft
-            </li>
-            <li>
-                set to graduate in 2025
-            </li>
-        </ul>
+    <audio id="background-audio" src="14_Ghosts_II_320kb.mp3" loop style="display: none"></audio>
 
-        <p>Alignment:</p>
-        <ul>
-            <li>
-                <a
-                    href="https://en.wikipedia.org/wiki/Church–Turing–Deutsch_principle#:~:text=The%20principle%20states%20that%20a,can%20simulate%20every%20physical%20process.">Church–Turing–Deutsch
-                    principle</a>
-            </li>
-            <li>
-                <a href="https://paulgraham.com/fn.html">Fierce Nerds</a>
-            </li>
-            <li>
-                <a href="https://www.lesswrong.com/s/5g5TkQTe9rmPS5vvM/p/SqF8cHjJv43mvJJzx">Feeling Rational</a>
-            </li>
-            <li>
-                <a href="https://effectiveaccelerationism.substack.com/p/repost-effective-accelerationism">
-                    Effective Accelerationism — e/acc
-                </a>
-            </li>
-            <li>
-                <a href="https://a16z.com/the-techno-optimist-manifesto/">The Techno-Optimist Manifesto</a>
-            </li>
-            <li>
-                <a href="https://doc.rust-lang.org/stable/book/">The Rust Programming Language</a>
-            </li>
-        </ul>
-        <p></p>
+    <script>
+        document.getElementById('timestamp').textContent = `${Date.now()}:`;
 
-        <audio id="background-audio" src="14_Ghosts_II_320kb.mp3" loop style="display: none"></audio>
+        document.addEventListener("DOMContentLoaded", function () {
+            const audio = document.getElementById("background-audio");
 
-        <script>
-            document.addEventListener("DOMContentLoaded", function () {
-                var audio = document.getElementById("background-audio");
+            const enableAudio = () => {
+                audio.play()
+                    .then(() => console.log("Audio playback started"))
+                    .catch(err => console.log("Audio playback failed:", err));
+            };
 
-                function playAudio() {
-                    var playPromise = audio.play();
-                    if (playPromise !== undefined) {
-                        playPromise
-                            .then(function () { })
-                            .catch(function (error) {
-                                console.log("autoplay prevented: ", error);
-                                [
-                                    "click",
-                                    "touchstart",
-                                    "scroll",
-                                    "keydown",
-                                ].forEach(function (event) {
-                                    document.addEventListener(
-                                        event,
-                                        enableAudio,
-                                        {
-                                            once: true,
-                                        },
-                                    );
-                                });
-                            });
-                    }
-                }
-
-                function enableAudio() {
-                    audio.play();
-                    console.log(
-                        "audio playback started after user interaction",
-                    );
-                }
-
-                playAudio();
-            });
-        </script>
+            const events = ["click", "touchstart", "scroll", "keydown"];
+            events.forEach(event =>
+                document.addEventListener(event, enableAudio, { once: true })
+            );
+        });
+    </script>
 </body>
 
 </html>

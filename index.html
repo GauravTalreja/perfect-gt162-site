@@ -13,14 +13,24 @@
             --bg-color: #ffffff;
             --accent-color: #865dff;
             --link-visited: #6c549c;
+            --transition-duration: 0.3s;
+            --border-color: rgba(134, 93, 255, 0.15);
+            --hover-bg: rgba(134, 93, 255, 0.05);
+            --content-width: 650px;
+            --body-padding: clamp(1.2rem, 5vw, 2rem);
+            --text-shadow: 0 1px 2px rgba(134, 93, 255, 0.05);
+            --header-link-gap: 0.5rem;
         }
 
         @media (prefers-color-scheme: dark) {
             :root {
                 --text-color: #cdd6f4;
                 --bg-color: #1e1e2e;
-                --accent-color: #865dff;
+                --accent-color: #b4a0ff;
                 --link-visited: #b7bdf8;
+                --border-color: rgba(167, 139, 255, 0.15);
+                --hover-bg: rgba(167, 139, 255, 0.05);
+                --text-shadow: 0 1px 2px rgba(167, 139, 255, 0.1);
             }
         }
 
@@ -34,21 +44,278 @@
             color: var(--text-color);
         }
 
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+                filter: blur(5px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+                filter: blur(0);
+            }
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: -100% 0;
+            }
+
+            100% {
+                background-position: 100% 0;
+            }
+        }
+
+        html {
+            height: 100%;
+            background: var(--bg-color);
+        }
+
         body {
-            max-width: 650px;
-            margin: 40px auto;
-            padding: 0 1.5rem;
+            max-width: var(--content-width);
+            margin: 0 auto;
+            padding: var(--body-padding);
+            min-height: calc(100vh + 200px);
+            display: flex;
+            flex-direction: column;
             font-family: "PP Editorial New", system-ui, -apple-system, sans-serif;
-            font-size: 16px;
-            line-height: 1.6;
+            font-size: clamp(15px, 1vw + 12px, 17px);
+            line-height: 1.75;
             color: var(--text-color);
             background: var(--bg-color);
+            transition: all var(--transition-duration) cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0;
+            animation: fadeIn 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            hanging-punctuation: first;
+        }
+
+        .main-content {
+            padding-top: clamp(2rem, 8vh, 4rem);
+            flex: 1;
+        }
+
+        @media (min-width: 768px) {
+            body {
+                line-height: 1.8;
+            }
         }
 
         h1,
         h2,
         h3 {
-            line-height: 1.2;
+            line-height: 1.15;
+            margin: 2em 0 1em;
+            font-weight: 500;
+            text-shadow: var(--text-shadow);
+        }
+
+        h3 {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        p {
+            margin: 1.5em 0;
+        }
+
+        ul {
+            padding-left: 0;
+            list-style-type: none;
+            margin: 2em 0;
+        }
+
+        li {
+            margin-bottom: 1.2rem;
+            position: relative;
+            padding: 0.4em 0.8em;
+            transition: all var(--transition-duration) cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 8px;
+            opacity: 0.85;
+            background: transparent;
+        }
+
+        li:hover {
+            transform: translateX(4px);
+            background: var(--hover-bg);
+            opacity: 1;
+        }
+
+        li::before {
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            li {
+                padding: 0.45em 0.9em;
+            }
+        }
+
+        .header {
+            margin-bottom: 4rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg,
+                    transparent,
+                    var(--accent-color),
+                    transparent);
+            opacity: 0.2;
+        }
+
+        .header h1 {
+            display: inline;
+            color: var(--accent-color);
+            margin: 0;
+            font-size: 3.5em;
+            letter-spacing: -0.02em;
+            font-weight: 400;
+            line-height: 1;
+        }
+
+        .header p {
+            margin: 0;
+            padding-left: 0.2rem;
+            display: flex;
+            gap: 1.2rem;
+            align-items: center;
+            font-size: 1em;
+            opacity: 0.7;
+        }
+
+        .header a {
+            padding: 0;
+            font-size: 1em;
+            transition: all var(--transition-duration) cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            text-decoration: none;
+            color: var(--text-color);
+            background: transparent;
+            opacity: 0.9;
+        }
+
+        .header a:hover {
+            opacity: 1;
+            transform: none;
+        }
+
+        .timestamp {
+            font-family: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            color: var(--accent-color);
+            opacity: 0.85;
+            font-size: 0.95em;
+            letter-spacing: -0.01em;
+        }
+
+        .webring {
+            margin-top: auto;
+            padding-top: 2.5rem;
+            padding-bottom: 2rem;
+            border-top: 1px solid var(--border-color);
+            position: relative;
+        }
+
+        .webring::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg,
+                    transparent,
+                    var(--accent-color),
+                    transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .webring:hover::before {
+            opacity: 0.5;
+            animation: shimmer 2s infinite linear;
+        }
+
+        .webring-container {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            justify-content: center;
+        }
+
+        .webring a {
+            padding: 0.6em 0.8em;
+            border-radius: 6px;
+            transition: all var(--transition-duration) cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 1.1em;
+        }
+
+        .webring a:hover {
+            background: var(--hover-bg);
+            transform: translateY(-1px);
+        }
+
+        .webring img {
+            width: 22px;
+            height: auto;
+            vertical-align: middle;
+            transition: transform var(--transition-duration) cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .webring a:hover img {
+            transform: scale(1.1);
+        }
+
+        em {
+            font-style: italic;
+            color: var(--accent-color);
+            opacity: 0.9;
+            transition: all var(--transition-duration) ease;
+            padding-left: 0.1em;
+            margin-left: -0.1em;
+            display: inline-block;
+        }
+
+        em:hover {
+            opacity: 1;
+            transform: translateY(-1px);
+        }
+
+        strong {
+            font-weight: 500;
+            color: var(--accent-color);
+            opacity: 0.9;
+            transition: all var(--transition-duration) ease;
+        }
+
+        strong:hover {
+            opacity: 1;
+            transform: translateY(-1px);
+        }
+
+        a {
+            text-decoration: none;
+            transition: all var(--transition-duration) cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            padding: 0.15em 0.3em;
+            margin: -0.15em -0.3em;
+            border-radius: 4px;
+            text-shadow: var(--text-shadow);
         }
 
         a:link {
@@ -59,112 +326,98 @@
             color: var(--link-visited);
         }
 
-        .header {
-            margin-bottom: 2rem;
+        a:hover {
+            background: var(--hover-bg);
+            transform: translateY(-1px);
         }
 
-        .header h1 {
-            display: inline;
-            color: var(--accent-color);
+        a:not(.webring a)::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 1.5px;
+            bottom: 0;
+            left: 0;
+            background-color: currentColor;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0.4;
         }
 
-        ul {
-            padding-left: 1.2rem;
-        }
-
-        li {
-            margin-bottom: 0.5rem;
-        }
-
-        .webring a:hover {
-            opacity: 1 !important;
-        }
-
-        .webring:hover {
-            opacity: 1 !important;
+        a:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+            opacity: 0.6;
         }
     </style>
 </head>
 
 <body>
-    <header class="header">
-        <h1>gaurav talreja </h1><span>GT · g ⊢</span>
-        <p><a href="http://gaurav.press/">blog</a> · <a href="https://x.com/gt0xa2/">@gt0xa2</a></p>
-    </header>
+    <div class="main-content">
+        <header class="header">
+            <h1>gaurav talreja</h1>
+            <p><a href="http://gaurav.press/">blog</a> · <a href="https://x.com/gt0xa2/">@gt0xa2</a></p>
+        </header>
 
-    <h3>t < <span id="timestamp"></span></h3>
+        <h3>t < <span id="timestamp" class="timestamp"></span></h3>
 
-    <ul>
-        <li>
-            grew up, studied, worked = (🇮🇳, 🇨🇦, 🇺🇸).map(silicon valley)
-        </li>
-        <li>
-            read <em>ready player one</em> and found it too aspirational at 14
-        </li>
-        <li>
-            wanted to make games and bring about the metaverse
-        </li>
-        <li>enrolled in <strong>cs @ waterloo</strong></li>
-        <li>
-            shipped the <em>minecraft legends</em> campaign @ 19
-        </li>
-        <li>
-            spent many hours at the
-            <a href="https://csclub.uwaterloo.ca/">computer science club</a>
-        </li>
-        <li>
-            built an ar experience for a toilet paper company to raise funds for breast cancer research
-        </li>
-        <li>
-            enhanced unreal engine 5 for <em>gears of war: e-day</em> at microsoft
-        </li>
-        <li>
-            tired of simulacra
-        </li>
-        <li>
-            graduating in 2025
-        </li>
-    </ul>
+        <ul>
+            <li>
+                grew up, studied, worked = (🇮🇳, 🇨🇦, 🇺🇸).map(silicon valley)
+            </li>
+            <li>
+                found <em>ready player one</em> instead of <a
+                    href="https://archive.ph/20231201091057/https://www.businessinsider.com/elon-musk-debated-meaning-of-life-as-a-child-2023-11"><em>hitchhiker's
+                        guide to the galaxy</em></a> at 12
+            </li>
+            <li>enrolled in <strong>cs @ waterloo</strong></li>
+            <li>
+                shipped <em>minecraft legends</em> @ 19
+            </li>
+            <li>
+                built an ar experience for a toilet paper company for breast cancer research fundraising
+            </li>
+            <li>
+                enhanced unreal engine 5 for <em>gears of war: e-day</em> at microsoft
+            </li>
+            <li>
+                graduating in 2025
+            </li>
+            <li>
+                the simulacrum is true
+            </li>
+        </ul>
+    </div>
 
-
-
-    <h3>alignment</h3>
-    <ul>
-        <li>
-            <a
-                href="https://en.wikipedia.org/wiki/Church–Turing–Deutsch_principle#:~:text=The%20principle%20states%20that%20a,can%20simulate%20every%20physical%20process.">church–turing–deutsch
-                principle</a>
-        </li>
-        <li>
-            <a href="https://paulgraham.com/fn.html">fierce nerds</a>
-        </li>
-        <li>
-            <a href="https://www.lesswrong.com/s/5g5TkQTe9rmPS5vvM/p/SqF8cHjJv43mvJJzx">feeling rational</a>
-        </li>
-        <li>
-            <a href="https://effectiveaccelerationism.substack.com/p/repost-effective-accelerationism">
-                effective accelerationism — e/acc
+    <div class="webring">
+        <div class="webring-container">
+            <a href="https://cs.uwatering.com/#https://gaurav.fyi?nav=prev" title="Previous">←</a>
+            <a href="https://cs.uwatering.com/#https://gaurav.fyi" target="_blank" title="CS Webring">
+                <picture>
+                    <source srcset="https://cs.uwatering.com/icon.white.svg" media="(prefers-color-scheme: dark)">
+                    <img src="https://cs.uwatering.com/icon.black.svg" alt="CS Webring"
+                        style="width: 20px; height: auto; vertical-align: middle;" />
+                </picture>
             </a>
-        </li>
-        <li>
-            <a href="https://a16z.com/the-techno-optimist-manifesto/">the techno-optimist manifesto</a>
-        </li>
-        <li>
-            <a href="https://doc.rust-lang.org/stable/book/">the rust programming language</a>
-        </li>
-        <li>
-            <a href="https://ia.samaltman.com">the intelligence age</a>
-        </li>
-        <li>
-            <a href="https://en.wikipedia.org/wiki/FM-2030">fm-2030</a>
-        </li>
-    </ul>
-    <p></p>
+            <a href="https://cs.uwatering.com/#https://gaurav.fyi?nav=next" title="Next">→</a>
+        </div>
+    </div>
 
     <audio id="background-audio" src="14_Ghosts_II_320kb.mp3" loop style="display: none"></audio>
 
     <script>
-        document.getElementById('timestamp').textContent = `${Date.now()}:`;
+        function formatTimestamp() {
+            const now = Date.now();
+            return `${now}:`;
+        }
+
+        function updateTimestamp() {
+            document.getElementById('timestamp').textContent = formatTimestamp();
+        }
+
+        updateTimestamp();
+        setInterval(updateTimestamp, 100);
 
         document.addEventListener("DOMContentLoaded", function () {
             const audio = document.getElementById("background-audio");
@@ -181,22 +434,6 @@
             );
         });
     </script>
-
-    <div class="webring" style="margin-top: 3rem; opacity: 0.7;">
-        <div style="display: flex; align-items: center; gap: 12px;">
-            <a href="https://cs.uwatering.com/#https://gaurav.fyi?nav=prev"
-                style="text-decoration: none; transition: opacity 0.2s;">←</a>
-            <a href="https://cs.uwatering.com/#https://gaurav.fyi" target="_blank" style="transition: opacity 0.2s;">
-                <picture>
-                    <source srcset="https://cs.uwatering.com/icon.white.svg" media="(prefers-color-scheme: dark)">
-                    <img src="https://cs.uwatering.com/icon.black.svg" alt="CS Webring"
-                        style="width: 20px; height: auto; vertical-align: middle;" />
-                </picture>
-            </a>
-            <a href="https://cs.uwatering.com/#https://gaurav.fyi?nav=next"
-                style="text-decoration: none; transition: opacity 0.2s;">→</a>
-        </div>
-    </div>
 </body>
 
 </html>

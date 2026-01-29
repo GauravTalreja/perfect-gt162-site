@@ -3,9 +3,9 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>g ⊢ / gaurav talreja</title>
+    <title>UNDER CONSTRUCTION</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="gaurav is studying computer science at the university of waterloo" />
+    <meta name="description" content="UNDER CONSTRUCTION" />
     <link rel="stylesheet" href="PPEditorialNew.css" />
     <style>
         :root {
@@ -356,38 +356,9 @@
 <body>
     <div class="main-content">
         <header class="header">
-            <h1>gaurav talreja</h1>
-            <p><a href="http://gaurav.press/">blog</a> · <a href="https://x.com/gt0xa2/">@gt0xa2</a></p>
+            <h1>UNDER CONSTRUCTION</h1>
+            <p><a href="">blog</a> · <a href="">@</a></p>
         </header>
-
-        <h3>t < <span id="timestamp" class="timestamp"></span></h3>
-
-        <ul>
-            <li>
-                grew up, studied, worked = (🇮🇳, 🇨🇦, 🇺🇸).map(silicon valley)
-            </li>
-            <li>
-                found <em>ready player one</em> instead of <a
-                    href="https://archive.ph/20231201091057/https://www.businessinsider.com/elon-musk-debated-meaning-of-life-as-a-child-2023-11"><em>hitchhiker's
-                        guide to the galaxy</em></a> at 12
-            </li>
-            <li>enrolled in <strong>cs @ waterloo</strong></li>
-            <li>
-                shipped <em>minecraft legends</em> @ 19
-            </li>
-            <li>
-                built an ar experience for a toilet paper company for breast cancer research fundraising
-            </li>
-            <li>
-                enhanced unreal engine 5 for <em>gears of war: e-day</em> at microsoft
-            </li>
-            <li>
-                graduating in 2025
-            </li>
-            <li>
-                the simulacrum is true
-            </li>
-        </ul>
     </div>
 
     <div class="webring">
@@ -405,35 +376,6 @@
     </div>
 
     <audio id="background-audio" src="14_Ghosts_II_320kb.mp3" loop style="display: none"></audio>
-
-    <script>
-        function formatTimestamp() {
-            const now = Date.now();
-            return `${now}:`;
-        }
-
-        function updateTimestamp() {
-            document.getElementById('timestamp').textContent = formatTimestamp();
-        }
-
-        updateTimestamp();
-        setInterval(updateTimestamp, 100);
-
-        document.addEventListener("DOMContentLoaded", function () {
-            const audio = document.getElementById("background-audio");
-
-            const enableAudio = () => {
-                audio.play()
-                    .then(() => console.log("Audio playback started"))
-                    .catch(err => console.log("Audio playback failed:", err));
-            };
-
-            const events = ["click", "touchstart", "scroll", "keydown"];
-            events.forEach(event =>
-                document.addEventListener(event, enableAudio, { once: true })
-            );
-        });
-    </script>
 </body>
 
 </html>
